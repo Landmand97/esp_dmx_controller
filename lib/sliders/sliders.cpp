@@ -1,3 +1,12 @@
+/*
+    This file contains the code for reading the sliders.
+    The sliders are connected to the ESP32 through the analog pins.
+    The sliders are used to control the fade in and fade out + more of the DMX signal.
+
+    Created by theMenace, 2024 03 09
+*/
+
+
 #include "sliders.h"
 
 #define FADE_IN_PIN 0

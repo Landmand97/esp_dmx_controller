@@ -1,3 +1,7 @@
+/* 
+This is a test file for the sliders.cpp file.
+*/
+
 #include <unity.h>
 #include <sliders.h>
 

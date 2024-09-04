@@ -1,16 +1,12 @@
 /*
+  Read data from sliders, buttons and other analog inputs.
+  Generate DMX data from this input.
+  Transmit DMX data to a DMX listener.
 
-  DMX Write
+  This sketch is based on the DMX write example from the ESP_DMX library.
 
-  This sketch allows you to write DMX data to a DMX listener using a standard
-  DMX shield, such SparkFun ESP32 Thing Plus DMX to LED Shield. This sketch was
-  made for the Arduino framework!
 
-  Created 10 September 2021
-  By Mitch Weisbrod
-
-  https://github.com/someweisguy/esp_dmx
-
+  Created by theMenace, 2024 03 09
 */
 #include <esp_dmx.h>
 #include <sliders.h>
@@ -75,6 +71,10 @@ void loop()
     Monitor. */
   unsigned long now = millis();
 
+  /*
+  If using the FT232RL USB to Serial converter, the frequency of the DMX transmit cannot exceed 40Hz.
+  1000ms / 40Hz = 25ms
+  */
   if (now - lastUpdate >= 25)
   {
     // printf("time since last update: %d\n", now - lastUpdate);
