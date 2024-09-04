@@ -1,0 +1,1 @@
+This project is a work in progress. It is intended to be a simple diy DMX controller, with sliders, buttons, leds, and a display. The project is based on the ESP32, and uses the ESP_dmx library and max485 converter module to generate the dmx protocol and control the DMX output.
