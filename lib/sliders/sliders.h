@@ -1,4 +1,4 @@
-#include <Arduino.h>
+#include <debugstatements.h>
 #include <movingAvg.h>
 byte read_slider(byte fader);
 void setup_sliders();

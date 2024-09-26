@@ -11,6 +11,9 @@
 #include <esp_dmx.h>
 #include <sliders.h>
 
+void recieve_dmx();
+
+
 /* First, lets define the hardware pins that we are using with our ESP32. We
   need to define which pin is transmitting data and which pin is receiving data.
   DMX circuits also often need to be told when we are transmitting and when we
@@ -69,6 +72,7 @@ void loop()
   /* Get the current time since boot in milliseconds so that we can find out how
     long it has been since we last updated data and printed to the Serial
     Monitor. */
+
   unsigned long now = millis();
 
   /*
@@ -97,5 +101,19 @@ void loop()
     /* If we have no more work to do, we will wait until we are done sending our
       DMX packet. */
     dmx_wait_sent(dmxPort, DMX_TIMEOUT_TICK);
+  }
+}
+
+void recieve_dmx()
+{
+  dmx_packet_t packet;
+  while (true)
+  {
+    int size = dmx_receive(dmxPort, &packet, DMX_TIMEOUT_TICK);
+    if (size > 0)
+    {
+      dmx_read(dmxPort, data, size);
+      printf("Received DMX %d\n", data[2]);
+    }
   }
 }

@@ -68,7 +68,8 @@ byte read_slider(byte slider)
     avg = 4095 - avg;
 
     byte data = map(avg, 0, 4095, 0, 255);
-    printf("avg: %d \t Fade in value: %d\n", avg, data);
+    debug("avg: %d \t", avg);
+    debug("Fade in value: %d\n", data);
 
     return data;
 
